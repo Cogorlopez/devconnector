@@ -1,21 +1,18 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
-import rootReducer from './reducers/';
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import rootReducer from "./reducers/";
 
 const initialState = {};
 
-const middleware = [thunk];
+const middleWare = [thunk];
 
-// Allows Redux to connect to chrome dev tools extension.
-// Putting it in a variable fixes IE and Edge issues.
-const devTools =
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+// Allows for app to still run if Redux DevTools is misssing from browser.
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
   rootReducer,
   initialState,
-  compose(applyMiddleware(...middleware)),
-  devTools
+  composeEnhancers(applyMiddleware(...middleWare))
 );
 
 export default store;
