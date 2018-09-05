@@ -81,8 +81,8 @@ class Login extends Component {
                     value={this.state.password}
                     onChange={this.onChange}
                   />
-                  {errors.email && (
-                    <div className="invalid-feedback">{errors.email}</div>
+                  {errors.password && (
+                    <div className="invalid-feedback">{errors.password}</div>
                   )}
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
