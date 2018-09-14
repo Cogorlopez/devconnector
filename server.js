@@ -19,7 +19,7 @@ const workDb = "mongodb://127.0.0.1:27017";
 
 // Connect to MongoDB
 mongoose
-  .connect(db)
+  .connect(workDb.toString())
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
